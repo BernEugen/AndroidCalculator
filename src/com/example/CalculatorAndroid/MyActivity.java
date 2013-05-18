@@ -1,9 +1,12 @@
 package com.example.CalculatorAndroid;
 
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.TextView;
 import com.example.CalculatorAndroid.Logic.ActionsMap;
 import com.example.CalculatorAndroid.Logic.Calculator;
@@ -28,6 +31,7 @@ public class MyActivity extends Activity implements OnClickListener {
 
     @Override
     public void onClick(View v) {
-        actionsMap.getButtonId(v.getId()).setDisplayInput(calculator, display);
+        actionsMap.getButtonId(v.getId())
+                .setDisplayInput(calculator, display);
     }
 }

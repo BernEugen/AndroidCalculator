@@ -1,6 +1,7 @@
 package com.example.CalculatorAndroid.Logic;
 
-import android.widget.Toast;
+import com.example.CalculatorAndroid.Logic.Input.CalculateOperations.BasicOperator;
+import com.example.CalculatorAndroid.Logic.Input.CalculateOperations.Compute;
 
 /**
  * Created with IntelliJ IDEA.
@@ -11,7 +12,12 @@ import android.widget.Toast;
 public class CalculatorDisplay implements Calculator {
 
     private String displayText = "0";
-    private String argument1;
+    private double argument1;
+    private double argument2;
+    private String operator;
+    private Compute compute;
+    private BasicOperator basicOperator;
+    private String[] resultParser;
 
     @Override
     public void zero() {
@@ -103,6 +109,9 @@ public class CalculatorDisplay implements Calculator {
 
     @Override
     public void subtract() {
+
+        operator = "-";
+
         if (!displayText.equals("0")) {
             displayText += "-";
         }
@@ -110,6 +119,9 @@ public class CalculatorDisplay implements Calculator {
 
     @Override
     public void add() {
+
+        operator = "+";
+
         if (!displayText.equals("0")) {
             displayText += "+";
         }
@@ -117,6 +129,9 @@ public class CalculatorDisplay implements Calculator {
 
     @Override
     public void multiply() {
+
+        operator = "*";
+
         if (!displayText.equals("0")) {
             displayText += "*";
         }
@@ -124,6 +139,9 @@ public class CalculatorDisplay implements Calculator {
 
     @Override
     public void divide() {
+
+        operator = "/";
+
         if (!displayText.equals("0")) {
             displayText += "/";
         }
@@ -135,13 +153,45 @@ public class CalculatorDisplay implements Calculator {
     }
 
     @Override
+    public void addSub() {
+        if (displayText.startsWith("-")) {
+            displayText = displayText.substring(1, displayText.length());
+        } else {
+            displayText = "-" + displayText;
+        }
+    }
+
+    @Override
+    public void separator() {
+        displayText += ".";
+    }
+
+    @Override
+    public void back() {
+        if (displayText.isEmpty()) {
+            displayText = "0";
+        } else {
+            displayText = displayText.substring(0, displayText.length() - 1);
+        }
+    }
+
+    @Override
     public void equal() {
 
+        resultParser = displayText.split("[-+*/]");
+
+        argument1 = Double.valueOf(resultParser[0]);
+        argument2 = Double.valueOf(resultParser[1]);
+
+        compute = new Compute();
+        basicOperator = compute.computing(operator);
+        double result = basicOperator.compute(argument1, argument2);
+
+        displayText = String.valueOf(result);
     }
 
     @Override
     public String getDisplay() {
         return displayText;
     }
-
 }

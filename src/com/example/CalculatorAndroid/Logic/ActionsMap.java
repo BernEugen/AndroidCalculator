@@ -37,6 +37,9 @@ public class ActionsMap {
         map.put(R.id.buttonDiv, new DivideInput());
         map.put(R.id.buttonEqual, new EqualInput());
         map.put(R.id.buttonCE, new CEInput());
+        map.put(R.id.buttonAddSub, new AddSub());
+        map.put(R.id.buttonComma, new SeparatorInput());
+        map.put(R.id.buttonBack, new BackInput());
     }
 
     public Actions getButtonId(int buttonId) {

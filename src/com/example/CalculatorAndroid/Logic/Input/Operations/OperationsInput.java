@@ -4,6 +4,8 @@ import android.widget.TextView;
 import com.example.CalculatorAndroid.Logic.Actions;
 import com.example.CalculatorAndroid.Logic.Calculator;
 
+import java.util.Enumeration;
+
 /**
  * Created with IntelliJ IDEA.
  * User: Eugen

@@ -1,7 +1,6 @@
 package com.example.CalculatorAndroid.Logic;
 
-import com.example.CalculatorAndroid.Logic.Input.CalculateOperations.BasicOperator;
-import com.example.CalculatorAndroid.Logic.Input.CalculateOperations.Compute;
+import com.example.CalculatorAndroid.Logic.Input.CalculateOperations.CalculateOperator;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,13 +11,9 @@ import com.example.CalculatorAndroid.Logic.Input.CalculateOperations.Compute;
 public class CalculatorDisplay implements Calculator {
 
     private String displayText = "0";
-    private double argument1;
-    private double argument2;
     private String operator;
-    private boolean isPressed;
-    private Compute compute;
-    private BasicOperator basicOperator;
-    private String[] resultParser;
+    private boolean isOperatorPressed;
+    CalculateOperator calculateOperator;
 
     @Override
     public void zero() {
@@ -103,9 +98,9 @@ public class CalculatorDisplay implements Calculator {
 
         this.operator = operator;
         if (!displayText.equals("0")) {
-            if (!isPressed) {
+            if (!isOperatorPressed) {
                 displayText += operator;
-                isPressed = true;
+                isOperatorPressed = true;
             }
         }
     }
@@ -113,7 +108,7 @@ public class CalculatorDisplay implements Calculator {
     @Override
     public void ce() {
         displayText = "0";
-        isPressed = false;
+        isOperatorPressed = false;
     }
 
     @Override
@@ -143,17 +138,9 @@ public class CalculatorDisplay implements Calculator {
     @Override
     public void equal() {
 
-        resultParser = displayText.split("[-+*/]");
-
-        argument1 = Double.valueOf(resultParser[0]);
-        argument2 = Double.valueOf(resultParser[1]);
-
-        compute = new Compute();
-        basicOperator = compute.computing(operator);
-        double result = basicOperator.compute(argument1, argument2);
-
-        isPressed = false;
-        displayText = String.valueOf(result);
+        calculateOperator = new CalculateOperator();
+        isOperatorPressed = false;
+        displayText = calculateOperator.calculate(displayText, operator);
     }
 
     @Override

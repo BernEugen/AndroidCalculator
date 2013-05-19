@@ -5,13 +5,13 @@ import com.example.CalculatorAndroid.Logic.Calculator;
 /**
  * Created with IntelliJ IDEA.
  * User: Eugen
- * Date: 12.05.13
- * Time: 18:41
+ * Date: 17.05.13
+ * Time: 8:14
  */
-public class MultiplyInput extends OperationsInput {
+public class Sqrt extends OperationsInput {
 
     @Override
     void executeOperation(Calculator calculator) {
-        calculator.multiply();
+        calculator.sqrt();
     }
 }

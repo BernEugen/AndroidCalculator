@@ -18,7 +18,7 @@
     <string name="operation_multiply">*</string>
     <string name="operation_divide">/</string>
     <string name="operation_percent">%</string>
-    <string name="add_sub">+/-</string>
+    <string name="operation_sqrt">\u221a</string>
 
     <string name="back">Back</string>
     <string name="ce">CE</string>

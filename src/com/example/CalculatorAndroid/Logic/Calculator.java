@@ -24,9 +24,10 @@ public interface Calculator {
     public void multiply();
     public void divide();
     public void ce();
-    public void addSub();
+    public void sqrt();
     public void separator();
     public void back();
+    public void percent();
 
     public void equal();
 }

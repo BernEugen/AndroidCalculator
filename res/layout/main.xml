@@ -10,7 +10,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@android:color/darker_gray"
-            android:layout_margin="5dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="5dp"
             android:textColor="#000"
             android:gravity="right|bottom"
             android:textSize="40sp"
@@ -191,7 +193,7 @@
         </Button>
 
         <Button
-                android:id="@+id/button4"
+                android:id="@+id/buttonPercent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -218,11 +220,11 @@
         </Button>
 
         <Button
-                android:id="@+id/buttonAddSub"
+                android:id="@+id/buttonSqrt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/add_sub"
+                android:text="@string/operation_sqrt"
                 android:onClick="onClick">
         </Button>
 

@@ -27,7 +27,7 @@ public interface Calculator {
     public void sqrt();
     public void separator();
     public void back();
-    public void percent();
+    public void fraction();
 
     public void equal();
 }

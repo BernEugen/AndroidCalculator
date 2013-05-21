@@ -40,7 +40,7 @@ public class ActionsMap {
         map.put(R.id.buttonSqrt, new Sqrt());
         map.put(R.id.buttonComma, new SeparatorInput());
         map.put(R.id.buttonBack, new BackInput());
-        map.put(R.id.buttonPercent, new PercentInput());
+        map.put(R.id.buttonFraction, new FractionInput());
     }
 
     public Actions getButtonId(int buttonId) {

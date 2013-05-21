@@ -13,7 +13,12 @@ public class CalculatorDisplay implements Calculator {
     private String displayText = "0";
     private String operator;
     private boolean isOperatorPressed;
+    private boolean isSeparatorPressed;
     CalculateOperator calculateOperator;
+
+    public CalculatorDisplay() {
+        calculateOperator = new CalculateOperator();
+    }
 
     @Override
     public void zero() {
@@ -66,7 +71,6 @@ public class CalculatorDisplay implements Calculator {
     }
 
     public void setNumber(String number) {
-
         if (displayText.equals("0")) {
             displayText = number;
         } else {
@@ -95,12 +99,12 @@ public class CalculatorDisplay implements Calculator {
     }
 
     public void setOperator(String operator) {
-
         this.operator = operator;
         if (!displayText.equals("0")) {
             if (!isOperatorPressed) {
                 displayText += operator;
                 isOperatorPressed = true;
+                isSeparatorPressed = false;
             }
         }
     }
@@ -109,21 +113,25 @@ public class CalculatorDisplay implements Calculator {
     public void ce() {
         displayText = "0";
         isOperatorPressed = false;
+        isSeparatorPressed = false;
     }
 
     @Override
     public void sqrt() {
-
+        displayText = calculateOperator.countSqrt(displayText);
     }
 
     @Override
-    public void percent() {
-
+    public void fraction() {
+        displayText = calculateOperator.countFract(displayText);
     }
 
     @Override
     public void separator() {
-        displayText += ".";
+        if (!isSeparatorPressed) {
+            displayText += ".";
+            isSeparatorPressed = true;
+        }
     }
 
     @Override
@@ -137,10 +145,9 @@ public class CalculatorDisplay implements Calculator {
 
     @Override
     public void equal() {
-
-        calculateOperator = new CalculateOperator();
-        isOperatorPressed = false;
         displayText = calculateOperator.calculate(displayText, operator);
+        isOperatorPressed = false;
+        isSeparatorPressed = true;
     }
 
     @Override
@@ -149,3 +156,20 @@ public class CalculatorDisplay implements Calculator {
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

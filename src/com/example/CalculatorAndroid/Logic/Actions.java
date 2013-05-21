@@ -9,5 +9,6 @@ import android.widget.TextView;
  * Time: 16:21
  */
 public interface Actions {
+
     void setDisplayInput(Calculator calculator, TextView display);
 }

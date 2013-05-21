@@ -1,6 +1,8 @@
 package com.example.CalculatorAndroid.Logic.Input.Operations;
 
 import com.example.CalculatorAndroid.Logic.Calculator;
+import com.example.CalculatorAndroid.Logic.Input.Numbers.NumbersInput;
+import com.example.CalculatorAndroid.Logic.Input.Operations.OperationsInput;
 
 /**
  * Created with IntelliJ IDEA.

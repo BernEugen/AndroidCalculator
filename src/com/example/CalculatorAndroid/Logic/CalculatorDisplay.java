@@ -14,7 +14,7 @@ public class CalculatorDisplay implements Calculator {
     private String operator;
     private boolean isOperatorPressed;
     private boolean isSeparatorPressed;
-    CalculateOperator calculateOperator;
+    private CalculateOperator calculateOperator;
 
     public CalculatorDisplay() {
         calculateOperator = new CalculateOperator();

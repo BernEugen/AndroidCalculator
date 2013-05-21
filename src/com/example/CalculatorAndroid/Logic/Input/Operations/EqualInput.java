@@ -14,6 +14,6 @@ public class EqualInput extends OperationsInput {
 
     @Override
     void executeOperation(Calculator calculator) {
-        //To change body of implemented methods use File | Settings | File Templates.
+        calculator.equal();
     }
 }
